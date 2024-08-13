@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { MdLightMode } from "react-icons/md";
 
 
-function Header({text, bgColor, textColor}) {
+function Header({text= 'Feedback UI', bgColor= 'rgba(0,0,0)', textColor = '#ff6a95'}) {
   const headerStyles = {
      backgroundColor: bgColor, 
      color:textColor
@@ -14,15 +15,15 @@ function Header({text, bgColor, textColor}) {
         <div className='container'>
             <h2>{text}</h2>
         </div>
+        <button onClick={() => console.log("light up")}>
+          <MdLightMode />
+        </button>
+        
     </header>   
   )
 }
 
-Header.defaultProps = {
-    text: 'Feedback UI',
-    bgColor: 'rgba(0,0,0)',
-    textColor:'#ff6a95'
-}
+
 
 Header.propTypes = {
     text: PropTypes.string,
