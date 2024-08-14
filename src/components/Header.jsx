@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { MdLightMode } from "react-icons/md";
 
 
-function Header({text= 'Feedback UI', bgColor= 'rgba(0,0,0)', textColor = '#ff6a95'}) {
+function Header({text= 'Feedback UI', bgColor= 'rgba(0,0,0)', textColor = '#ff6a95', handleReverse}) {
   const headerStyles = {
      backgroundColor: bgColor, 
      color:textColor
@@ -15,7 +15,7 @@ function Header({text= 'Feedback UI', bgColor= 'rgba(0,0,0)', textColor = '#ff6a
         <div className='container'>
             <h2>{text}</h2>
         </div>
-        <button onClick={() => console.log("light up")}>
+        <button onClick={handleReverse}>
           <MdLightMode />
         </button>
         
