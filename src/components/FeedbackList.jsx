@@ -25,7 +25,7 @@ if(!feedback || feedback.length === 0){
           initial={{opacity:0}}
           animate={{opacity:1}}
           exit={{opacity: 0}}>
-              <FeedbackItem key={item.id} item={item} handleDelete={handleDelete} reverse={reverse}/>
+              <FeedbackItem item={item} handleDelete={handleDelete} reverse={reverse}/>
           </motion.div>
       ))}
       </AnimatePresence>
@@ -34,13 +34,15 @@ if(!feedback || feedback.length === 0){
 }
 
 FeedbackList.propTypes = {
-    feedback: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            text: PropTypes.string.isRequired,
-            rating: PropTypes.number.isRequired,
-        })
-    )
+  feedback: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      text: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  reverse: PropTypes.bool,
 }
 
 export default FeedbackList
