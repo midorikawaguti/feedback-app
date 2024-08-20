@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import FeedbackData from './data/FeedbackData';
 import AboutPage from "./pages/AboutPage";
 import AboutIconLink from "./components/AboutIconLink";
+import { FeedbackProvider } from "./context/FeedbackContext";
 
 function App() {
     const [feedback, setFeedback] = useState(FeedbackData);
@@ -30,6 +31,7 @@ function App() {
     };
 
     return (
+        <FeedbackProvider>
         <Router>
             <Header handleReverse={changeColors} />
             <div className="container">
@@ -39,9 +41,8 @@ function App() {
                         element={
                             <>
                                 <FeedbackForm reverse={reverse} handleAdd={addFeedback} />
-                                <FeedbackStats feedback={feedback} />
+                                <FeedbackStats />
                                 <FeedbackList
-                                    feedback={feedback}
                                     handleDelete={deleteFeedback}
                                     reverse={reverse}
                                 />
@@ -53,6 +54,7 @@ function App() {
                 <AboutIconLink/>
             </div>
         </Router>
+        </FeedbackProvider>
     );
 }
 
