@@ -8,8 +8,6 @@ function Button({children, version = 'primary', type = 'button', isDisabled = fa
     </button>
   )
 }
-
-
 Button.propTypes = {
     children: PropTypes.node.isRequired,
     version: PropTypes.string,

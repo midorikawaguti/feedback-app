@@ -1,10 +1,10 @@
 import React from 'react'
 import Card from './shared/Card'
-import { useState, useContext, useEffect } from 'react'
 import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
 import FeedbackContext from '../context/FeedbackContext'
 
+import { useState, useContext, useEffect } from 'react'
 
 function FeedbackForm( {reverse} ) {
     const [text, setText] = useState('')
@@ -61,7 +61,7 @@ function FeedbackForm( {reverse} ) {
         <div className='input-group'>
             <input
             onChange={handleTextChange}
-            typr='text'
+            type='text'
             placeholder='Write a review'
             value = {text}
             />
